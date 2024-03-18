@@ -1,0 +1,160 @@
+*{
+    font-family: "Montserrat Alternates", sans-serif;
+}
+body{
+    /* background-color: #D0D1FD; */
+    background-image: url("https://i.postimg.cc/KYWzrTrh/Untitled-removebg-preview.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.navbar{
+    padding: 10px 20px;
+    margin :0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+.navbar h3,  h2{
+    color:#5A189A
+}
+h4{
+    margin-bottom: 5px;
+}
+.desktopMenuListItem{
+    color: inherit;
+    margin:1rem;
+    cursor:pointer;
+  
+}
+
+.desktopMenuListItem:hover {
+    color:#9D4EDD;
+    padding-bottom:0.5rem;
+    border-bottom: 3px solid #9D4EDD;
+    
+
+}
+.start{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+h1{
+    font-size:3rem;
+    color: #5A189A;
+}
+
+p{
+    font-size:1.3rem;
+}
+.startbtn, .deletebtn{
+    background-color: #5A189A;
+    color:white;
+    padding:10px 20px;
+    border-radius: 10px;
+    border-color: #5A189A;
+    font-size:1rem;
+    cursor:pointer;
+}
+.startbtn:hover{
+    color:#5A189A;
+    background-color: white;
+    border-style: solid;
+
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:80vh;
+    margin:0 30px;
+
+
+}
+.budget {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    padding: 30px;
+    padding-right: 40px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width:40vw;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+.budgetitem{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    padding-right: 40px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width:40vw;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    border-style: solid;
+    border-color: #5A189A;
+
+}
+.try{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.budgetname {
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.expensename{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+
+table{
+
+        width: 100%;
+
+        border-color: #5A189A;
+        border-style: solid;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+thead{
+        background-color: #5A189A;
+        color: white;
+}
+tr,td{
+    border-style: solid;
+    border-color: #5A189A;
+    border-width: 0.5px;
+}
+td{
+    padding: 10px;
+}
+.tablebox{
+    margin:auto;
+    width:80vw;
+
+
+
+}
