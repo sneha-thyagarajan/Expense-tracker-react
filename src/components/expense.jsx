@@ -2,37 +2,56 @@ import React from "react";
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-function Expense(){
+import { useParams } from "react-router-dom";
+// import { useState } from 'react';
+import { useGlobalState } from "../context/globalstate";
+
+
+function Expense( ){
+    const { budgetName } = useParams();
+    const { spent, setSpent, expenseName, setExpenseName, expenseList, setExpenseList } = useGlobalState();
+ 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      
+
+        if (spent && expenseName) {
+            setExpenseList([...expenseList, { budgetName, expenseName,spent }]);
+            setSpent("");
+            setExpenseName("");
+        }
+
+    }
     return(
         <div>
-            <div className="budget">
+            <form className="budget" onSubmit={handleSubmit}>
                 <h2>Create Expense</h2>
                 <div className="expensename">
                     <div>
                         <h4>Expense Name</h4>
                         <FormControl  sx={{ m: 1 }}>
                     
-                        <OutlinedInput placeholder="e.g. Coffee"  color= "secondary" style={{height:"50px"}} />
+                        <OutlinedInput placeholder="e.g. Coffee"  color= "secondary" value={expenseName}  onChange={(e) => setExpenseName(e.target.value)} style={{height:"50px"}} />
                         </FormControl>
                     </div>
                     <div>
                         <h4>Budget Name</h4>
                         <FormControl sx={{ m: 1 }}>
                     
-                        <OutlinedInput placeholder="e.g. Grocery"  color= "secondary" style={{height:"50px"}} />
+                        <OutlinedInput placeholder={budgetName} value={budgetName} color= "secondary" style={{height:"50px"}} readonly  />
                         </FormControl>
                     </div>
                 </div>
                 <div>
                     <h4>Amount</h4>
                     <FormControl fullWidth sx={{ m: 1 }}>                  
-                    <OutlinedInput  startAdornment={<InputAdornment position="start">₹</InputAdornment>} placeholder="Enter your expenditure" color= "secondary" style={{height:"50px"}} />
+                    <OutlinedInput  startAdornment={<InputAdornment position="start">₹</InputAdornment>} placeholder="Enter your expenditure" value={spent} onChange={(e) => setSpent(e.target.value)} color= "secondary" style={{height:"50px"}} />
                     </FormControl>
                 </div>
                 <div>
-                    <button className="startbtn" style={{marginTop:"10px"}}>Add</button>
+                    <button type="submit" className="startbtn" style={{marginTop:"10px"}}>Add</button>
                 </div>
-            </div>
+            </form>
             <div className="tablebox">
                 <h2>Expense List</h2>
                 <table>
@@ -45,18 +64,16 @@ function Expense(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Groceries</td>
-                            <td>Coffee</td>
-                            <td>₹ 50</td>
-                            <td><button className="deletebtn">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <td>Clothes</td>
-                            <td>Frock</td>
-                            <td>₹ 500</td>
-                            <td><button className="deletebtn">Delete</button></td>
-                        </tr>
+                        {  expenseList.length ===0 ? <tr><td colSpan="4">No expenses added yet</td></tr> :                    
+                        (expenseList.map((expense, index) => (
+                            <tr>
+                            <td>{expense.budgetName}</td>
+                            <td>{expense.expenseName}</td>
+                            <td>₹ {expense.spent}</td>
+                            <td><button className="deletebtn" onClick={() => setExpenseList(expenseList.filter((_, i) => i !== index))} >Delete</button></td>
+                            </tr>)))
+                        }
+
                     </tbody>
                 </table>
             </div>

@@ -104,11 +104,13 @@ p{
     border-color: #5A189A;
 
 }
-.try{
+/* .try{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+} */
 .budgetname {
     display:flex ;
     flex-direction: row;
@@ -157,4 +159,9 @@ td{
 
 
 
+}
+.budgetsection{
+    display:grid;
+    grid-template-columns: 1fr 1fr ;
+   margin-left:15px;
 }
